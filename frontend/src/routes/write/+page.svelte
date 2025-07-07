@@ -30,23 +30,15 @@
       </div>
 
       <div class="">
-<<<<<<< HEAD
         <!--구 내용 입력 (textarea)-->
-=======
->>>>>>> feature/testPost
         <!--<textarea
           class="w-full border rounded-xl p-2 h-100"
           name="content"
           placeholder="내용을 입력하세요."
-<<<<<<< HEAD
         ></textarea>
         -->
         <Tiptap bind:content className=" w-full h-150 border-1 border-black p-2 rounded-lg mb-2 overflow-y-scroll"/>
         <input type="hidden" name="content" value={content} />
-=======
-        ></textarea>-->
-        <Tiptap className="h-150 w-full overflow-y-scroll" />
->>>>>>> feature/testPost
       </div>
 
       <div class="flex justify-end">
@@ -63,18 +55,13 @@
 </script>
 
 <script lang="ts">
-  import Tiptap from "$lib/components/tiptap/tiptap.svelte";
   import { goto } from "$app/navigation";
   import Tiptap from "$lib/components/tiptap/tiptap.svelte";
 
-<<<<<<< HEAD
   //
   let content = ''
 
   // 폼 제출
-=======
-  // 폼 관리
->>>>>>> feature/testPost
   const handleSubmit = async (event: SubmitEvent) => {
 
     const form = event.target as HTMLFormElement
