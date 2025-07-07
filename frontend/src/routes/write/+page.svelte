@@ -30,11 +30,15 @@
       </div>
 
       <div class="">
-        <textarea
+        <!--구 내용 입력 (textarea)-->
+        <!--<textarea
           class="w-full border rounded-xl p-2 h-100"
           name="content"
           placeholder="내용을 입력하세요."
         ></textarea>
+        -->
+        <Tiptap bind:content className=" w-full h-150 border-1 border-black p-2 rounded-lg mb-2 overflow-y-scroll"/>
+        <input type="hidden" name="content" value={content} />
       </div>
 
       <div class="flex justify-end">
@@ -52,18 +56,24 @@
 
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import Tiptap from "$lib/components/tiptap/tiptap.svelte";
+  //
+  let content = ''
 
+  // 폼 제출
   const handleSubmit = async (event: SubmitEvent) => {
+
     const form = event.target as HTMLFormElement
     const data = new FormData(form)
 
     // 데이터 정제
     const title = data.get('title')
-    const content = data.get('code')
-    const code = data.get('content')
+    const code = data.get('code')
 
     // 데이터 묶어서 Json 화
     const jsonData = JSON.stringify({ title, content, code })
+
+    console.log(jsonData)
 
     try {
       // 주소로 POST 요청 보내기
@@ -85,7 +95,6 @@
       }
     } catch (err) {
       alert("작성 실패했습니다!")
-      goto('/')
       console.log(err)
     }
   }
