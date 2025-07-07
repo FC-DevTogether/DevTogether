@@ -30,11 +30,12 @@
       </div>
 
       <div class="">
-        <textarea
+        <!--<textarea
           class="w-full border rounded-xl p-2 h-100"
           name="content"
           placeholder="내용을 입력하세요."
-        ></textarea>
+        ></textarea>-->
+        <Tiptap className="h-150 w-full overflow-y-scroll" />
       </div>
 
       <div class="flex justify-end">
@@ -52,8 +53,11 @@
 
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import Tiptap from "$lib/components/tiptap/tiptap.svelte";
 
+  // 폼 관리
   const handleSubmit = async (event: SubmitEvent) => {
+
     const form = event.target as HTMLFormElement
     const data = new FormData(form)
 
@@ -85,7 +89,6 @@
       }
     } catch (err) {
       alert("작성 실패했습니다!")
-      goto('/')
       console.log(err)
     }
   }
