@@ -57,7 +57,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import Tiptap from "$lib/components/tiptap/tiptap.svelte";
-
   //
   let content = ''
 

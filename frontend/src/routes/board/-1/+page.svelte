@@ -35,7 +35,7 @@
       </div>
 
       <div class="mb-6">
-        <p class="whitespace-pre-wrap">{data.post_content}</p>
+        <p class="tiptap">{@html data.post_content}</p>
       </div>
       <!-- 댓글 부분 -->
       <div class="border-t pt-4">
@@ -56,7 +56,10 @@
 </script>
 
 <script lang="ts">
+  import "$lib/components/tiptap/tiptap.css"
+
   import CommonComment from '$lib/components/commonComment.svelte';
+  import { testPostData } from '$lib/testPostData';
 
   import hljs from 'highlight.js';
   import java from 'highlight.js/lib/languages/java'
@@ -73,23 +76,5 @@
     })
   })
 
-  const data: App.PostData = {
-    post_code: `public class Main {
-  public static void main (String[] args) {
-    System.out.println("Hello, World!!");
-  }
-}`,
-    post_createdDate: "0000.00.00/00:00",
-
-    post_id: 427,
-    post_title: "테스트 페이지입니다.",
-    post_uploader: {
-      user_createDate: "0000.00.00/00:00",
-      user_id: 0,
-      user_name: "테스트 유저",
-      user_role: 7
-    },
-    post_comments: [],
-    post_content: "포스트 내용이 들어갈 위치입니다.",
-  }
+  const data: App.PostData = testPostData
 </script>

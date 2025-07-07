@@ -41,4 +41,4 @@ markdown 문법 또한
   })
 </script>
 
-<div bind:this={element} />
+<div bind:this={element}></div>

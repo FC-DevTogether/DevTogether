@@ -31,6 +31,7 @@
   {#each posts as post}
     <Postpreview data={post}/>
   {/each}
+  <Postpreview data={testPostData}/>
 </main>
 
 <!-- 페이지네이션 -->
@@ -46,6 +47,7 @@
 
 <script lang="ts">
   import Postpreview from '$lib/components/postPreview.svelte'
+  import { testPostData } from '$lib/testPostData';
   import { onMount } from 'svelte';
 
   let posts: App.PostData[] = []

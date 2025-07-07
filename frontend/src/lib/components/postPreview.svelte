@@ -1,5 +1,11 @@
 <script lang='ts'>
   export let data: App.PostData
+
+  const stripHtmlFast = (html: string) => {
+    return html.replace(/<[^>]*>/g, '')
+  }
+
+  const summary = stripHtmlFast(data.post_content.slice(0,128)) + "..."
 </script>
 
 <a href={`/board/`+data.post_id} class="m-1">
@@ -9,6 +15,6 @@
       <p class="text-sm text-gray-400">{data.post_uploader.user_name} | {data.post_createdDate}</p>
       <p class="text-gray-400"> {data.post_id}</p>
     </div>
-    <p class="border-t-1 border-neutral-600 text-neutral-500 ">{data.post_content}</p>
+    <p class="border-t-1 border-neutral-600 text-neutral-500 ">{stripHtmlFast(summary)}</p>
   </div>
 </a>

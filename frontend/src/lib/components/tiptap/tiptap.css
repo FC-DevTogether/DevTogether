@@ -46,7 +46,7 @@
   }
 
   .tiptap h1 {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
   .tiptap h2 {
@@ -54,13 +54,13 @@
   }
 
   .tiptap h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .tiptap h4,
   .tiptap h5,
   .tiptap h6 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   /* Code and preformatted text styles */
@@ -77,8 +77,10 @@
     border-radius: 0.5rem;
     @apply text-white;
     font-family: 'JetBrainsMono', monospace;
-    margin: 1.5rem 0;
-    padding: 0.75rem 1rem;
+    @apply py-0;
+    /*margin: 0rem 0;
+    padding: 0.75rem 0.25rem;*/
+    @apply overflow-x-scroll
   }
 
   .tiptap pre code {
@@ -104,7 +106,7 @@
     margin: 2rem 0;
   }
 
-  .is-editor-empty:first-child::before {
+  .tiptap .is-editor-empty:first-child::before {
     @apply text-gray-400;
     content: attr(data-placeholder);
     float: left;
