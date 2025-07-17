@@ -1,0 +1,30 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: devtogether-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/devTogether?useSSL=false;
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=1234Dev
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: mysql:8.0
+    container_name: devtogether-mysql-db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=devTogether
+      - MYSQL_USER=sa
+      - MYSQL_PASSWORD=1234Dev
+      - MYSQL_ROOT_PASSWORD=sapassword1234
+
+volumes:
+  mysqldata:
