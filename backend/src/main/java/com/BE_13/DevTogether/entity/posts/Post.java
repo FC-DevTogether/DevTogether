@@ -44,6 +44,7 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User author; // 작성자
 
+    @Column(length = 3000)
     private String code; // 작성 코드
 
     private String content; // 게시글 본문

@@ -1,6 +1,5 @@
 package com.BE_13.DevTogether.entity.comment;
 
-
 import com.BE_13.DevTogether.entity.posts.Post;
 import com.BE_13.DevTogether.entity.user.User;
 import jakarta.persistence.*;

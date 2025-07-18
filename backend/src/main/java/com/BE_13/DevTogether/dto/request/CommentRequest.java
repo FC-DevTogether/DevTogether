@@ -9,8 +9,7 @@ package com.BE_13.DevTogether.dto.request;
  *
  * @author chan
  */
-// TODO: author의 타입이 User 관련이 아니라 String이여도 괜찮은가?
-public record CommentRequest(String author,
+public record CommentRequest(AuthorPostRequest author,
                              String content,
                              Long parent) {
 }

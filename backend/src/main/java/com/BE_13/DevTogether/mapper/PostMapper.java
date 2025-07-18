@@ -13,7 +13,7 @@ import com.BE_13.DevTogether.entity.user.User;
 import java.util.stream.Collectors;
 
 /**
- * 엔티티(Entity)를 DTO로 변환하는 클래스이다.
+ * 게시글(Post) 엔티티(Entity)를 DTO로 변환하는 클래스이다.
  *
  * @author chan
  */
