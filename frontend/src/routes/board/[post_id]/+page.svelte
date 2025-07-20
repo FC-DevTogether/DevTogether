@@ -4,10 +4,21 @@
     <!-- 윗 블럭 -->
     <div class="flex justify-between bg-white">
       <p class="py-0.25 px-2 m-1">Java 21</p>
-      <button type="button" on:click={copyCode} class="border-1 rounded-sm border-black py-0.25 px-2 m-1">코드 복사</button>
+      <button class="border-1 rounded-sm border-black py-0.25 px-2 m-1">코드 복사</button>
     </div>
     <!-- 코드 부분 -->
     <div class="overflow-scroll no-scrollbar font-mono text-sm leading-tight">
+      <!--구 코드 구현 (table 방식)
+      <table class="table-fixed w-full">
+        <tbody>
+          {#each (data.post_code ?? "").split('\n') as line, i}
+            <tr>
+              <td class="pr-4 text-right text-gray-500 select-none w-8 border-r-1 border-neutral-500">{i + 1}</td>
+              <td class="align-top"><code class="language-java whitespace-pre">{line}</code></td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>-->
       <Codemirror code={post.code} readOnly={true} className="text-lg"/>
     </div>
   </div>
@@ -75,15 +86,5 @@
 
   const handleSubmit = () => {
 
-  }
-
-  const copyCode = async () => {
-    try {
-      await navigator.clipboard.writeText(post.code)
-      alert("코드가 복사되었습니다!")
-    } catch (err) {
-      alert("복사에 실패했습니다!" + err)
-      console.log(err)
-    }
   }
 </script>

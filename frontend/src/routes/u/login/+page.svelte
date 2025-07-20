@@ -48,7 +48,7 @@
 
       console.log(res)
       
-      if(res.status == 403 || res.status == 404) {
+      if(res.status == 403) {
         alert('아이디 또는 비밀번호가 틀렸습니다!')
         return
       }

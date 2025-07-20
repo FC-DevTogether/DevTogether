@@ -31,10 +31,9 @@ public class CommentService {
     /**
      * 게시글(Post)에 댓글을 작성한다.
      *
-     * @param userId 작성자
-     * @param postId 게시글
+     * @param userId  작성자
+     * @param postId  게시글
      * @param request 작성한 댓글
-     *
      * @return 작성한 댓글
      */
     public Long commentCreate(Long userId, Long postId, CommentRequest request) {
@@ -65,7 +64,6 @@ public class CommentService {
      * 게시글(Post)에 작성된 댓글 리스트를 가져온다.
      *
      * @param postId 조회한 게시글
-     *
      * @return 작성한 댓글 리스트
      */
     public List<CommentResponse> findComments(Long postId) {
@@ -74,7 +72,7 @@ public class CommentService {
         Post post = postRepository.findById(postId).orElseThrow(() -> new IllegalArgumentException("해당 게시글을 찾을 수 없습니다."));
 
         // 저장소에서 댓글을 가져온다.
-        List<Comment> comments = commentRepository.findByCommentList(post);
+        List<Comment> comments = commentRepository.findByPost(post);
 
         // Comment 리스트를 CommentResponse DTO 리스트로 변환하여 반환한다.
         return comments.stream()

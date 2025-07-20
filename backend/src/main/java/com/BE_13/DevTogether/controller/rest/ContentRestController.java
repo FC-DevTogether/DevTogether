@@ -15,12 +15,17 @@ import java.util.List;
  *
  * @author chan
  */
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @RequestMapping("/api/posts/{postId}/comments")
 @RestController
 public class ContentRestController {
 
     private final CommentService commentService;
+
+    public ContentRestController(CommentService commentService) {
+        this.commentService = commentService;
+        System.out.println("ContentRestController 생성됨!!!");
+    }
 
     /**
      * 댓글(Comment) 작성

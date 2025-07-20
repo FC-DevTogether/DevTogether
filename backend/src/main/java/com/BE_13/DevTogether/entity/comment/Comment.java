@@ -50,4 +50,13 @@ public class Comment {
         this.content = content;
         this.parent = parent;
     }
+
+    @Builder(builderMethodName = "testBuilder", buildMethodName = "buildForTest")
+    public Comment(Long id, String content, Post post, User author, Long parent) {
+        this.id = id;
+        this.content = content;
+        this.post = post;
+        this.author = author;
+        this.parent = parent;
+    }
 }
